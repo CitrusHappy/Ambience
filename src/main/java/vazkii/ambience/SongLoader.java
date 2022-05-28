@@ -97,7 +97,6 @@ public final class SongLoader {
 						continue;
 
 					String keyType = tokens[0];
-					int dimID = tryParse(tokens[1], 0);
 					if (keyType.equals("event")) {
 						String event = tokens[1];
 						
@@ -158,11 +157,11 @@ public final class SongLoader {
 						if(tokens.length>2) 							
 						{
 							event=tokens[2];
-							SongPicker.eventMap.put(event+"\\"+ dimID, props.getProperty(s).split(","));
+							SongPicker.eventMap.put(event+"\\"+ tokens[1], props.getProperty(s).split(","));
 						}
 						else
 						{
-							SongPicker.eventMap.put("dim" + dimID, props.getProperty(s).split(","));
+							SongPicker.eventMap.put("dim" + tokens[1], props.getProperty(s).split(","));
 						}
 					}
 
